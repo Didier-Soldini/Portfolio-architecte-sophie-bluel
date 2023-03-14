@@ -4,11 +4,12 @@ const filterContainer = document.querySelector('.filtres'),
 
  filterContainer.addEventListener("click", (event) =>{
    if(event.target.classList.contains('filtres__button')){
-   	 // deactivate existing active 'filter-item'
+   	 // deactivate existing active 'filtres__button'
    	 filterContainer.querySelector('.active').classList.remove('active');
-   	 // activate new 'filter-item'
+   	 // activate new 'filtres__button'
    	 event.target.classList.add('active');
    	 const filterValue = event.target.getAttribute('data-filter');
+	 // filtre la galerie par les id'
    	 galleryItems.forEach((item) =>{
        if(item.classList.contains(filterValue) || filterValue === 'all'){
        	item.classList.remove('hide');
