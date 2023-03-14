@@ -14,6 +14,7 @@ const buttonElement = document.createElement('span');
 buttonElement.dataset.id = BouttonsFiltres[i].id
 buttonElement.className = 'filtres__button';
 buttonElement.innerText = button.name
+//ajout d'un data filter pour filtrer par id et changer l'état des bouttons
 buttonElement.setAttribute ('data-filter',button.id);
 
 

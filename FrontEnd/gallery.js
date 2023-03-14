@@ -9,7 +9,7 @@ for (let i = 0; i < gallery.length; i++) {
 const figure = gallery[i];
 // Récupération de l'élément du DOM qui accueillera la galerie
 const divGallery = document.querySelector('.gallery');
-
+//Création d'une div pour filtrer par les id
 const categoryElement = document.createElement('div');
 categoryElement.className = 'gallery__item' +' '+ figure.category.id;
 // Création d’une balise dédiée à une figure
