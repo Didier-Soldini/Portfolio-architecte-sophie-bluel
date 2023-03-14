@@ -1,7 +1,9 @@
+
 // Récupération de la galerie depuis le fichier JSON
 const reponse = await fetch('http://localhost:5678/api/works');
 const gallery = await reponse.json();
 
+export function genererGallery() {
 //Boucle pour généré la galerie
 for (let i = 0; i < gallery.length; i++) {
 const figure = gallery[i];
@@ -16,11 +18,9 @@ imageElement.src = figure.imageUrl;
 const nomElement = document.createElement('figcaption');
 nomElement.innerText = figure.title;
 
-// On rattache la balise article a la section gallery
+// On rattache la balise article a la div gallery
 divGallery.appendChild(figureElement);
 figureElement.appendChild(imageElement);
 figureElement.appendChild(nomElement);
 }
-
-
-     
+}
