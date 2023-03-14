@@ -88,6 +88,7 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
+	cursor: pointer;
 
 }
 nav li {
@@ -143,8 +144,14 @@ li:hover {
 	border-radius: 60px;
 	padding: 9.5px;
 	min-width: 78px;
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
-.filtres__button--actif{
+.filtres__button:hover {
+	background-color:#0E2F28;
+	color: white;
+}
+.active{
 	background-color: #1D6154;
 	color: white;
 }
@@ -155,7 +162,20 @@ li:hover {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-
+.gallery__item.show{
+	animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.gallery__item.hide{
+	display: none;
+}
 .gallery img {
 	width: 100%;
 
@@ -201,6 +221,11 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
+}
+input:hover {
+	background-color:#0E2F28;
+	color: white;
 }
 
 footer nav ul {
