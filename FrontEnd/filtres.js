@@ -4,9 +4,9 @@ const filterContainer = document.querySelector('.filtres'),
 
  filterContainer.addEventListener("click", (event) =>{
    if(event.target.classList.contains('filtres__button')){
-   	 // deactivate existing active 'filtres__button'
+   	 // desactive classe active en cour 'filtres__button'
    	 filterContainer.querySelector('.active').classList.remove('active');
-   	 // activate new 'filtres__button'
+   	 // deplace class active sur 'filtres__button' actif
    	 event.target.classList.add('active');
    	 const filterValue = event.target.getAttribute('data-filter');
 	 // filtre la galerie par les id'

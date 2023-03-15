@@ -91,13 +91,26 @@ nav ul {
 	cursor: pointer;
 
 }
+
+nav a {
+	text-decoration: none;
+	color:black;
+}
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
 
+.black{
+	font-weight: 700;
+}
+
 li:hover {
 	color: #B1663C;
+}
+
+.margin-top {
+	margin-top: 162px;
 }
 #introduction {
 	display: flex;
@@ -228,9 +241,25 @@ input[type="submit"]{
 	color: white;
 }
 
+.log_forget {
+	display: flex;
+	justify-content: center;
+	text-decoration: underline;
+	color: black;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
 }
 
+.absolute{
+	position: absolute;
+	bottom: 0px;
+}
+
+.relative{
+	position: relative;
+	left: 921.7px;
+}
