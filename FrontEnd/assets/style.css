@@ -248,6 +248,14 @@ input[type="submit"]{
 	color: black;
 }
 
+#erreur {
+	display:flex;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 20px;
+	color: red;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;

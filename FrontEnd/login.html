@@ -25,11 +25,11 @@
 <main class="margin-top">
     <section id="contact">
 		<h2>Log In</h2>
-		<form class="login" action="#" method="">
+		<form id ="login" action="http://localhost:5678/api/users/login" method="POST"><p id="erreur"></p>
             <label for="email">Email</label>
-			<input type="email" name="email" id="email">
-            <label for="pass">Mot de passe</label>
-			<input type="password"  id="pass" name="password">
+			<input class="mail" type="email" name="email" id="email" >
+            <label for="password">Mot de passe</label>
+			<input class="pwd" type="password"  id="password" name="password" >
 			<input class="button" type="submit" value="Se connecter">
             <a href="#" class="log_forget">Mot de passe oublié</a>
 		</form>
