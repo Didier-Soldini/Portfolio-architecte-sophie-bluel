@@ -1,9 +1,9 @@
-import { genererGallery} from "./gallery.js";
+import { genererGallery } from "./gallery.js";
 genererGallery()
 
-import { genererBouttons} from "./boutons.js";
+import { genererBouttons } from "./boutons.js";
 genererBouttons()
 
-import { genererFiltres} from "./filtres.js";
+import { genererFiltres } from "./filtres.js";
 genererFiltres()
 

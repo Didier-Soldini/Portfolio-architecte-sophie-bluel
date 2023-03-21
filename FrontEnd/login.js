@@ -6,8 +6,9 @@ loginPost.addEventListener("submit", async function (event) {
 	// Désactivation du comportement par défaut du navigateur
 	event.preventDefault();
 	const login = {
+		password: (event.target.querySelector('[name=password]').value),
 		email: (event.target.querySelector('[name=email]').value),
-		password: (event.target.querySelector('[name=password]').value)
+
 	};
 	// Création de la charge utile au format JSON
 	const chargeUtile = JSON.stringify(login);
@@ -20,19 +21,22 @@ loginPost.addEventListener("submit", async function (event) {
 	const loginState = await reponse.json();
 	console.log(loginState)
 	if (loginState.hasOwnProperty('message')) {
+		document.getElementById('erreur').innerText = 'Erreur dans l’identifiant ou le mot de passe';
+		window.localStorage.removeItem('token');
 		console.log('erreur')
 	} else {
+
 		window.localStorage.setItem('token', loginState.token);
-		window.location.href = 'index.html';
+		window.location.href = 'edit.html';
 	}
-	
+
 });
 
 //conditions d'erreurs
 
 //format email valide
-const email = document.querySelector('input.mail');
-email.oninvalid = function (e) {
+const mail = document.querySelector('input.mail');
+mail.oninvalid = function (e) {
 	e.target.setCustomValidity("");
 	if (!e.target.validity.valid) {
 		if (e.target.value.length == 0) {
@@ -42,3 +46,4 @@ email.oninvalid = function (e) {
 		}
 	}
 };
+
