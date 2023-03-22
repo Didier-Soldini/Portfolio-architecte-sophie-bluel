@@ -262,21 +262,24 @@ li:hover {
 	margin: auto;
 	width: 80%;
 }
+
 #introduction .row {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin: 13px 0 0 57px
 }
+
 #introduction .row2 {
 	position: absolute;
+	z-index: -1;
 	top: 250px;
 	margin: 0 0 19px 1px;
 }
 
 #introduction .pen {
 	height: 20px;
-    width: 20px;
+	width: 20px;
 	margin: 0;
 }
 
@@ -467,4 +470,145 @@ footer nav ul {
 .relative {
 	position: relative;
 	left: 921.7px;
+}
+
+/*CSS de la modale*/
+
+h3 {
+	display: flex;
+	justify-content: center;
+	font-weight: 400;
+	font-size: 26px;
+	margin: 10px 0 46px 0;
+}
+
+
+
+.modal-wrapper button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#fff;
+	border: none;
+	width: 13px;
+	height: 13px;
+	margin: 10px 0 0 610px;
+}
+
+
+#modal1 .button {
+	display: flex;
+	justify-content: center;
+	border: none;
+	width: 237px;
+	height: 36px;
+	margin-top: 38px;
+	margin-bottom: 23px;
+}
+
+.gallery--center {
+	display: flex;
+	justify-content: center;
+}
+
+#modal1 .gallery-modal {
+	width: 73%;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 8px;
+	grid-row-gap: 6px;
+	border-bottom: 0.3px solid;
+	padding-bottom: 47px;
+}
+
+#modal1 .gallery-modal img {
+	width: 100%;
+
+}
+
+#modal1 span {
+	display: flex;
+	justify-content: center;
+	font-weight: 400;
+	font-size: 14px;
+	color: red;
+	cursor: pointer;
+	margin-bottom: 28px;
+}
+
+:focus {
+	box-shadow: 1px 0 0 black
+}
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	animation: fadeIn .3s both
+}
+
+.modal-wrapper {
+	overflow: auto;
+	width: 630px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	border-radius: 10px;
+	padding: 20px;
+	background-color: #fff;
+	animation: slideFromTop .3s both
+}
+
+.modal[aria-hidden=true] {
+	animation-name: fadeOut
+}
+
+.modal[aria-hidden=true] .modal-wrapper {
+	animation-name: slideToBottom
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1
+	}
+
+	to {
+		opacity: 0
+	}
+}
+
+@keyframes slideFromTop {
+	from {
+		transform: translateY(-50px)
+	}
+
+	to {
+		transform: translateY(0)
+	}
+}
+
+@keyframes slideToBottom {
+	from {
+		transform: translateY(0)
+	}
+
+	to {
+		transform: translateY(50px)
+	}
 }

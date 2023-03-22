@@ -15,26 +15,43 @@
 
 <body>
     <div class="blackbox">
-            <img src="./assets/icons/pen-to-square-light-white.png"></img><a href="#">Mode édition</a>
-            <span class="blackbox__button">publier les changements</span>
-        </div>
-    <header class="header">
-        
-        <div class="header--row">
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-        <nav>
-            <ul>
-                <li class="black">projets</li>
-                <li>contact</li>
-                <a href="login.html">
-                    <li>login</li>
-                </a>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-            </ul>
-        </nav>
+        <img src="./assets/icons/pen-to-square-light-white.png"></img><a href="#modal1" class="js-modal">Mode
+            édition</a>
+        <span class="blackbox__button">publier les changements</span>
     </div>
+
+    <header class="header">
+
+        <div class="header--row">
+            <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+            <nav>
+                <ul>
+                    <li class="black">projets</li>
+                    <li>contact</li>
+                    <a href="login.html">
+                        <li>login</li>
+                    </a>
+                    <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
+        <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
+            style="display:none;">
+            <div class="modal-wrapper js-modal-stop">
+                <button><img class="js-modal-close" src="./assets/icons/xmark-solid.png"></img></button>
+                <h3 id="titlemodal">Galerie photo</h3>
+                <div class="gallery--center">  
+                    <div class="gallery-modal">
+
+                    </div>
+                </div>  
+                <input class="button" type="submit" value="Ajouter une photo">
+                <span class ="delete">Supprimer la galerie</span>
+
+            </div>
+        </aside>
         <section id="introduction">
             <figure>
                 <img src="./assets/images/sophie-bluel.png" alt="">
@@ -51,13 +68,13 @@
                 <p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
                     décorateur(trice)</p>
             </article>
-             
+
         </section>
-       
+
         <section class="portfolio">
             <div class="porfolio__projets">
-            <h2>Mes Projets</h2>
-            <img src="./assets/icons/pen-to-square-light-black.png"></img><a href="#">modifier</a>
+                <h2>Mes Projets</h2>
+                <img src="./assets/icons/pen-to-square-light-black.png"></img><a href="#">modifier</a>
             </div>
             <div class="gallery">
                 <!-- galerie DOM javascript -->
@@ -85,6 +102,7 @@
             </ul>
         </nav>
     </footer>
+    <script src="modal.js"></script>
 </body>
 
 </html>
