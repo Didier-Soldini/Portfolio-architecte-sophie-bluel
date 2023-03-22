@@ -484,15 +484,9 @@ h3 {
 
 
 
-.modal-wrapper button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color:#fff;
-	border: none;
-	width: 13px;
-	height: 13px;
-	margin: 10px 0 0 610px;
+.js-modal-close {
+
+	margin: 10px 0 0 570px;
 }
 
 
@@ -506,25 +500,48 @@ h3 {
 	margin-bottom: 23px;
 }
 
+#modal1 figure {
+	height: 145px;
+}
+
 .gallery--center {
 	display: flex;
 	justify-content: center;
 }
 
-#modal1 .gallery-modal {
-	width: 73%;
+.gallery-modal {
+	width: 77%;
 	display: grid;
 	justify-content: center;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 8px;
-	grid-row-gap: 6px;
-	border-bottom: 0.3px solid;
+	border-bottom: 0.3px solid #B3B3B3;
 	padding-bottom: 47px;
 }
 
-#modal1 .gallery-modal img {
+
+.gallery-modal img {
 	width: 100%;
 
+}
+
+.trash {
+	position: relative;
+	top: -124px;
+	left: 62px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 17px;
+	height: 17px;
+	border-radius: 2px;
+	background-color: black;
+	cursor: pointer;
+}
+
+.trash img {
+	width: 9px;
+	height: 9px;
 }
 
 #modal1 span {
@@ -550,13 +567,13 @@ h3 {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, .8);
+	background: rgba(0, 0, 0, .5);
 	animation: fadeIn .3s both
 }
 
 .modal-wrapper {
 	overflow: auto;
-	width: 630px;
+	width: 590px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
 	border-radius: 10px;
