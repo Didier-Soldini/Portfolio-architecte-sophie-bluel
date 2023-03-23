@@ -49,7 +49,7 @@ const openModal = async function (e) {
             index < 0 && (index = focusables.length - 1),
             focusables[index].focus()
     }
-    
+
 // Sélection de tous les liens à l'interieur de la modale    
 document.querySelectorAll('.js-modal').forEach(e => {
     e.addEventListener('click', openModal)
