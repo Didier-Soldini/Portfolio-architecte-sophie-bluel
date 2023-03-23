@@ -272,9 +272,10 @@ li:hover {
 
 #introduction .row2 {
 	position: absolute;
-	z-index: -1;
+	z-index: 0;
 	top: 250px;
 	margin: 0 0 19px 1px;
+	cursor: pointer;
 }
 
 #introduction .pen {
@@ -485,8 +486,8 @@ h3 {
 
 
 .js-modal-close {
-
 	margin: 10px 0 0 570px;
+	cursor: pointer;
 }
 
 
@@ -563,6 +564,7 @@ h3 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	width: 100%;

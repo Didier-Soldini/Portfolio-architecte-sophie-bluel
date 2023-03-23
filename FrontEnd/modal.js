@@ -1,12 +1,12 @@
-
+//ouvrir et afficher modale et focus à l'interieur de la modale
 const focusableSelector = 'button, a, input, textarea';
 let modal = null
     , focusables = []
     , previouslyFocusedElement = null;
 const openModal = async function (e) {
     e.preventDefault();
-    const o = e.target.getAttribute('href');
-    modal = o.startsWith('#') ? document.querySelector(o) : await loadModal(o),
+    const target = e.target.getAttribute('href');
+    modal = target.startsWith('#') ? document.querySelector(target) : await loadModal(target),
         focusables = Array.from(modal.querySelectorAll(focusableSelector)),
         previouslyFocusedElement = document.querySelector(':focus'),
         modal.style.display = null,
@@ -17,6 +17,7 @@ const openModal = async function (e) {
         modal.querySelector('.js-modal-close').addEventListener('click', closeModal),
         modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
 }
+    //fermer la modale
     , closeModal = function (e) {
         if (null === modal)
             return;
@@ -27,40 +28,34 @@ const openModal = async function (e) {
             modal.removeEventListener('click', closeModal),
             modal.querySelector(".js-modal-close").removeEventListener('click', closeModal),
             modal.querySelector(".js-modal-stop").removeEventListener('click', stopPropagation);
-        const o = function () {
+        //annimation fermer modale    
+        const close = function () {
             modal.style.display = 'none',
-                modal.removeEventListener('animationend', o),
+                modal.removeEventListener('animationend', close),
                 modal = null
         };
-        modal.addEventListener('animationend', o)
+        modal.addEventListener('animationend', close)
     }
+    //empecher la fermeture au click à l'interieur de la modale
     , stopPropagation = function (e) {
         e.stopPropagation()
     }
+    //garde le focus dans la modale
     , focusInModal = function (e) {
         e.preventDefault();
-        let o = focusables.findIndex(e => e === modal.querySelector(':focus'));
-        !0 === e.shiftKey ? o-- : o++,
-            o >= focusables.length && (o = 0),
-            o < 0 && (o = focusables.length - 1),
-            focusables[o].focus()
+        let index = focusables.findIndex(e => e === modal.querySelector(':focus'));
+        !0 === e.shiftKey ? index-- : index++,
+            index >= focusables.length && (index = 0),
+            index < 0 && (index = focusables.length - 1),
+            focusables[index].focus()
     }
-    , loadModal = async function (e) {
-        const o = '#' + e.split('#')[1]
-            , t = document.querySelector(o);
-        if (null !== t)
-            return t;
-        const l = await fetch(e).then(e => e.text())
-            , a = document.createRange().createContextualFragment(l).querySelector(o);
-        if (null === a)
-            throw `L'élément ${o} n'a pas été trouvé dans la page ${e}`;
-        return document.body.append(a),
-            a
-    };
+    
+// Sélection de tous les liens à l'interieur de la modale    
 document.querySelectorAll('.js-modal').forEach(e => {
     e.addEventListener('click', openModal)
 }
 ),
+    //fermer la modale avec echap et laisser le tab dans la modale
     window.addEventListener('keydown', function (e) {
         'Escape' !== e.key && "Esc" !== e.key || closeModal(e),
             'Tab' === e.key && null !== modal && focusInModal(e)
