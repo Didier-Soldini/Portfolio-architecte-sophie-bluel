@@ -2,7 +2,7 @@ export function genererFiltres() {
 	const filterContainer = document.querySelector('.filtres'),
 		galleryItems = document.querySelectorAll('.gallery__item');
 
-	filterContainer.addEventListener("click", (event) => {
+	filterContainer.addEventListener('click', (event) => {
 		if (event.target.classList.contains('filtres__button')) {
 			// desactive classe active en cour 'filtres__button'
 			filterContainer.querySelector('.active').classList.remove('active');

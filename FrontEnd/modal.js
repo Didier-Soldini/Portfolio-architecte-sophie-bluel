@@ -26,8 +26,8 @@ const openModal = async function (e) {
             modal.setAttribute('aria-hidden', 'true'),
             modal.removeAttribute('aria-modal'),
             modal.removeEventListener('click', closeModal),
-            modal.querySelector(".js-modal-close").removeEventListener('click', closeModal),
-            modal.querySelector(".js-modal-stop").removeEventListener('click', stopPropagation);
+            modal.querySelector('.js-modal-close').removeEventListener('click', closeModal),
+            modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
         //annimation fermer modale    
         const close = function () {
             modal.style.display = 'none',
