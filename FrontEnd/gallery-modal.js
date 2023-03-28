@@ -3,6 +3,7 @@ const reponse = await fetch('http://localhost:5678/api/works');
 const gallery = await reponse.json();
 
 
+
 for (let i = 0; i < gallery.length; i++) {
     const figureModal = gallery[i];
     // Récupération de l'élément du DOM qui accueillera la galerie
@@ -20,9 +21,10 @@ for (let i = 0; i < gallery.length; i++) {
     nomElementModal.innerText = 'éditer';
     const trashElementModal = document.createElement('div');
     trashElementModal.className = 'trash';
+    trashElementModal.setAttribute('onclick', "test()");
     const deleteElementModal = document.createElement('img');
     deleteElementModal.src = './assets/icons/trash.png';
-
+    
 
     // On rattache la balise article a la div gallery
     divGalleryModal.appendChild(categoryElementModal);

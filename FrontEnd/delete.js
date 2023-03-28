@@ -1,9 +1,4 @@
-document.querySelector('.trash').addEventListener('click', deleteWorks);
 
-function deleteWorks () {
-        console.log(deleteWorks)
-     alert("ok");
-}
 
 /* On récupère les tokens depuis le localStorage */
 const token = localStorage.getItem('token');
