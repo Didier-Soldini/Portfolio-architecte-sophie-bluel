@@ -485,13 +485,20 @@ h3 {
 
 
 
-.js-modal-close {
+.js-modal-close,
+.js-modal2-close {
 	margin: 10px 0 0 570px;
 	cursor: pointer;
 }
 
+.js-modal2-return {
+	position: relative;
+	top: -17px;
+	cursor: pointer;
+}
 
-#modal1 .button {
+#modal1 .button,
+#modal2 .button {
 	display: flex;
 	justify-content: center;
 	border: none;
@@ -505,12 +512,14 @@ h3 {
 	height: 145px;
 }
 
-.gallery--center {
+.gallery--center,
+.form--center {
 	display: flex;
 	justify-content: center;
 }
 
-.gallery-modal {
+.gallery-modal,
+.form-modal {
 	width: 77%;
 	display: grid;
 	justify-content: center;
@@ -540,7 +549,7 @@ h3 {
 	cursor: pointer;
 }
 
-#trash img {	
+#trash img {
 	width: 9px;
 	height: 9px;
 }
@@ -583,6 +592,57 @@ h3 {
 	background-color: #fff;
 	animation: slideFromTop .3s both
 }
+
+.js-modal-2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	width: 237px;
+	height: 36px;
+	margin-top: 38px;
+	margin-bottom: 23px;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	text-decoration: none;
+	background-color: #1D6154;
+	margin: 2em auto;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
+}
+
+.js-modal-2:hover {
+	background-color: #0E2F28;
+}
+
+.post__button {
+	position: relative;
+		display: flex;
+			justify-content: center;
+			align-items: center;
+			border: none;
+			width: 173px;
+			height: 36px;
+			margin-top: 38px;
+			margin-bottom: 23px;
+			font-family: 'Syne';
+			font-weight: 500;
+			color: #306685;
+			text-decoration: none;
+			background-color: #CBD6DC;
+			margin: 2em auto;
+			text-align: center;
+			border-radius: 60px;
+			cursor: pointer;
+}
+
+.post__img {
+	position:relative;
+
+}
+
 
 .modal[aria-hidden=true] {
 	animation-name: fadeOut

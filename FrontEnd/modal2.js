@@ -14,9 +14,9 @@ const openModal = async function (e) {
         modal.removeAttribute('aria-hidden'),
         modal.setAttribute('aria-modal', 'true'),
         modal.addEventListener("click", closeModal),
-        modal.querySelector('.js-modal-close').addEventListener('click', closeModal),
-        modal.querySelector('.js-modal-2').addEventListener('click', closeModal),
-        modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+        modal.querySelector('.js-modal2-close').addEventListener('click', closeModal),
+        modal.querySelector('.js-modal2-return').addEventListener('click', closeModal),
+        modal.querySelector('.js-modal2-stop').addEventListener('click', stopPropagation)
 }
     //fermer la modale
     , closeModal = function (e) {
@@ -27,9 +27,9 @@ const openModal = async function (e) {
             modal.setAttribute('aria-hidden', 'true'),
             modal.removeAttribute('aria-modal'),
             modal.removeEventListener('click', closeModal),
-            modal.querySelector('.js-modal-close').removeEventListener('click', closeModal),
-            modal.querySelector('.js-modal-2').removeEventListener('click', closeModal),
-            modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation);
+            modal.querySelector('.js-modal2-close').removeEventListener('click', closeModal),
+            modal.querySelector('.js-modal2-return').removeEventListener('click', closeModal),
+            modal.querySelector('.js-modal2-stop').removeEventListener('click', stopPropagation);
         //annimation fermer modale    
         const close = function () {
             modal.style.display = 'none',
@@ -53,40 +53,12 @@ const openModal = async function (e) {
     }
 
 // Sélection de tous les liens à l'interieur de la modale    
-document.querySelectorAll('.js-modal').forEach(e => {
+document.querySelectorAll('.js-modal-2').forEach(e => {
     e.addEventListener('click', openModal)
 }
 ),
-
-    document.querySelectorAll('.js-modal2-return').forEach(e => {
-        e.addEventListener('click', openModal)
-    }
-    ),
     //fermer la modale avec echap et laisser le tab dans la modale
     window.addEventListener('keydown', function (e) {
         'Escape' !== e.key && "Esc" !== e.key || closeModal(e),
             'Tab' === e.key && null !== modal && focusInModal(e)
     });
-
-
-function removeElement(id) {
-       
-    
-    const token = localStorage.getItem('token')
- 
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `bearer ${token}`
-        } ,
-        body: JSON.stringify({
-            
-        })
-    };
-
-    fetch(`http://localhost:5678/api/works/${id}`,options)
-        .then(response =>response.json());
-        return json;
-      
-}

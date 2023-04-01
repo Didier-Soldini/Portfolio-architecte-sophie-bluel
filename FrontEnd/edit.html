@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <script type="module" src="script.js"></script>
     <script type="module" src="gallery-modal.js"></script>
-    
+    <script type="module" src="modal2.js"></script>
 
 <body>
     <div class="blackbox">
@@ -49,23 +49,38 @@
 
                     </div>
                 </div>
-                <input class="button" type="submit" value="Ajouter une photo">
+                <a class="js-modal-2" href="#modal2">Ajouter une photo</a>
                 <span class="delete">Supprimer la galerie</span>
 
             </div>
         </aside>
-        <aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display:none;">
-            <div class="modal-wrapper js-modal-stop">
-                <img class="js-modal-close" src="./assets/icons/xmark-solid.png"></img>
+        <aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
+            style="display:none;">
+            <div class="modal-wrapper js-modal2-stop">
+                <img class="js-modal2-close" src="./assets/icons/xmark-solid.png"></img>
+                <img href="#modal1" class="js-modal2-return" src="./assets/icons/arrow-left-solid.png"></img>
                 <h3 id="titlemodal">Ajout photo</h3>
-                <div class="gallery--center">
-                    <div class="gallery-modal">
-        
+                <div class="form--center">
+                    <div class="form-modal">
+                        <form action="#" method="post">
+                            <label class="post__button">+ Ajouter photo</label>
+                            <input class="post__img" type="file" id="image" name="image" accept="image/png, image/jpeg">
+
+                            <label for="Titre">Titre</label><br>
+                            <input type="text" name="Titre" id="Titre"><br>
+
+                            <label for="Catégorie">Catégorie</label><br>
+                            <select name="Catégorie" id="Catégorie">
+                                <option value=""></option>
+                                <option value="Objet">Objets</option>
+                                <option value="Appartements">Appartements</option>
+                                <option value="Hotels & restaurants">Hotels & restaurants</option>
+                            </select>
                     </div>
                 </div>
                 <input class="button" type="submit" value="Valider">
-                
-        
+                </form>
+
             </div>
         </aside>
         <section id="introduction">
