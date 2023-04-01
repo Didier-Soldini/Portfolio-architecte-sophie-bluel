@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <script type="module" src="script.js"></script>
     <script type="module" src="gallery-modal.js"></script>
-    <script type="module" src="delete.js"></script>
+    
 
 <body>
     <div class="blackbox">
@@ -52,6 +52,20 @@
                 <input class="button" type="submit" value="Ajouter une photo">
                 <span class="delete">Supprimer la galerie</span>
 
+            </div>
+        </aside>
+        <aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal" style="display:none;">
+            <div class="modal-wrapper js-modal-stop">
+                <img class="js-modal-close" src="./assets/icons/xmark-solid.png"></img>
+                <h3 id="titlemodal">Ajout photo</h3>
+                <div class="gallery--center">
+                    <div class="gallery-modal">
+        
+                    </div>
+                </div>
+                <input class="button" type="submit" value="Valider">
+                
+        
             </div>
         </aside>
         <section id="introduction">

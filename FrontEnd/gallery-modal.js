@@ -20,8 +20,8 @@ for (let i = 0; i < gallery.length; i++) {
     const nomElementModal = document.createElement('a');
     nomElementModal.innerText = 'éditer';
     const trashElementModal = document.createElement('div');
-    trashElementModal.className = 'trash';
-    trashElementModal.setAttribute('onclick', "test()");
+    trashElementModal.id = 'trash';
+    trashElementModal.setAttribute('onclick', 'removeElement(' + gallery[i].id + ')');
     const deleteElementModal = document.createElement('img');
     deleteElementModal.src = './assets/icons/trash.png';
     
@@ -33,5 +33,6 @@ for (let i = 0; i < gallery.length; i++) {
     figureElementModal.appendChild(nomElementModal);
     figureElementModal.appendChild(trashElementModal);
     trashElementModal.appendChild(deleteElementModal);
-}
+};
 
+    

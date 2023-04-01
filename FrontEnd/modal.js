@@ -62,6 +62,24 @@ document.querySelectorAll('.js-modal').forEach(e => {
     });
 
 
-    function test (){
-    alert('ok');
-};
+function removeElement(id) {
+       
+    
+    const token = localStorage.getItem('token')
+ 
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `bearer ${token}`
+        } ,
+        body: JSON.stringify({
+            
+        })
+    };
+
+    fetch(`http://localhost:5678/api/works/${id}`,options)
+        .then(response =>response.json());
+        return json;
+      
+}
