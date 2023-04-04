@@ -518,8 +518,7 @@ h3 {
 	justify-content: center;
 }
 
-.gallery-modal,
-.form-modal {
+.gallery-modal {
 	width: 77%;
 	display: grid;
 	justify-content: center;
@@ -530,12 +529,13 @@ h3 {
 }
 
 
+
 .gallery-modal img {
 	width: 100%;
 
 }
 
-#trash {
+.trash {
 	position: relative;
 	top: -124px;
 	left: 62px;
@@ -549,7 +549,7 @@ h3 {
 	cursor: pointer;
 }
 
-#trash img {
+.trash img {
 	width: 9px;
 	height: 9px;
 }
@@ -593,6 +593,12 @@ h3 {
 	animation: slideFromTop .3s both
 }
 
+.form-modal label {
+	font-weight: 600;
+	font-size: 14px;
+	color: #3D3D3D;
+}
+
 .js-modal-2 {
 	display: flex;
 	justify-content: center;
@@ -617,32 +623,86 @@ h3 {
 	background-color: #0E2F28;
 }
 
+.post__background {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 420px;
+	height: 169px;
+	background-color: #E8F1F6;
+	margin-bottom: 30px;
+}
+
+
+
 .post__button {
-	position: relative;
-		display: flex;
-			justify-content: center;
-			align-items: center;
-			border: none;
-			width: 173px;
-			height: 36px;
-			margin-top: 38px;
-			margin-bottom: 23px;
-			font-family: 'Syne';
-			font-weight: 500;
-			color: #306685;
-			text-decoration: none;
-			background-color: #CBD6DC;
-			margin: 2em auto;
-			text-align: center;
-			border-radius: 60px;
-			cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	width: 173px;
+	height: 36px;
+	margin-top: 21px;
+	margin-bottom: 7px;
+	font-family: 'Syne';
+	font-weight: 500;
+	color: #306685;
+	text-decoration: none;
+	background-color: #CBD6DC;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
 }
 
 .post__img {
-	position:relative;
-
+	position: absolute;
+	top: 212px;
+	width: 173px;
+	height: 60px;
+	opacity: 0;
+	cursor: pointer;
 }
 
+.post__preview {
+	position: absolute;
+	width: 129px;
+	height: 169px;
+	opacity: 0;
+}
+
+.post__background span {
+	font-weight: 400;
+	font-size: 10px;
+}
+
+.post__text {
+	width: 404px;
+	height: 51px;
+	border: none;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+	color: #444444;
+	padding-left: 16px;
+	box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+	transition: 0.3s;
+	margin: 10px 0 21px 0;
+}
+
+.post__select {
+	width: 420px;
+	height: 51px;
+	border: none;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+	color: #444444;
+	padding-left: 16px;
+	box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+	transition: 0.3s;
+	margin-top: 10px;
+}
 
 .modal[aria-hidden=true] {
 	animation-name: fadeOut

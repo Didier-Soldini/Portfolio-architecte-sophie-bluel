@@ -24,6 +24,12 @@ loginPost.addEventListener("submit", async function (event) {
 		document.getElementById('erreur').innerText = 'Erreur dans l’identifiant ou le mot de passe';
 		window.localStorage.removeItem('token');
 		console.log('erreur')
+	}
+		else if (loginState.hasOwnProperty('error')) {
+			document.getElementById('erreur').innerText = 'Erreur dans l’identifiant ou le mot de passe';
+			window.localStorage.removeItem('token');
+			console.log('erreur')
+
 	} else {
 
 		window.localStorage.setItem('token', loginState.token);

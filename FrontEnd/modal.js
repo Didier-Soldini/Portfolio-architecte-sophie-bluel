@@ -68,25 +68,90 @@ document.querySelectorAll('.js-modal').forEach(e => {
             'Tab' === e.key && null !== modal && focusInModal(e)
     });
 
+//------------------------------DELETE--------------------------------//
+
 
 function removeElement(id) {
-       
-    
+
+
     const token = localStorage.getItem('token')
- 
+
     const options = {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `bearer ${token}`
-        } ,
+        },
         body: JSON.stringify({
             
         })
     };
 
-    fetch(`http://localhost:5678/api/works/${id}`,options)
-        .then(response =>response.json());
-        return json;
-      
+    fetch(`http://localhost:5678/api/works/${id}`, options)
+        .then(response => response.json());
+    return json;
+
 }
+
+//-------------------------PREVIEW IMAGE-----------------------------------------//
+
+// L'image img#image
+let image = document.getElementById("image");
+
+// La fonction previewPicture
+let previewPicture = function (e) {
+
+    // e.files contient un objet FileList
+    const [picture] = e.files
+   
+    // "picture" est un objet File
+    if (picture) {
+        // On change l'URL de l'image
+        image.src = URL.createObjectURL(picture)
+    }
+ console.log(image.src)
+    // Les types de fichier autorisés
+    let types = ["image/jpg", "image/jpeg", "image/png"];
+
+    // Vérification si "picture.type" se trouve dans "types"
+    if (types.includes(picture.type)) {
+        // On affiche l'image sur la page ...
+        document.querySelector('.post__logo-image').style.opacity = '0';
+        document.querySelector('.post__button').style.opacity = '0';
+        document.querySelector('.post__span').style.opacity = '0';
+        document.querySelector('.post__preview').style.opacity = '100';
+    }
+}
+
+//------------------------------POST--------------------------------//
+
+
+const form = document.getElementById('form');
+
+form.addEventListener('submit', callbackFunction);
+function callbackFunction(event) {
+     event.preventDefault();
+    const myFormData = new FormData(event.target);
+
+    const file =document.querySelector('#file');
+    myFormData.append('imageUrl', file.files[0])
+
+    const formDataObj = Object.fromEntries(myFormData.entries());
+    console.log(formDataObj);
+
+    
+    const token = localStorage.getItem('token')
+    
+      const options = {
+        method: 'POST',
+        headers: {
+            'Authorization': `bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+          body: myFormData,
+    };
+
+    fetch('http://localhost:5678/api/works', options)
+        .then(response => response.json());
+       
+};

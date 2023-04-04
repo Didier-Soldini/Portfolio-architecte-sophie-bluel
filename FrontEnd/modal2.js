@@ -62,3 +62,5 @@ document.querySelectorAll('.js-modal-2').forEach(e => {
         'Escape' !== e.key && "Esc" !== e.key || closeModal(e),
             'Tab' === e.key && null !== modal && focusInModal(e)
     });
+
+

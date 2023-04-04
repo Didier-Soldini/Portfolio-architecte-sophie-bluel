@@ -20,7 +20,8 @@ for (let i = 0; i < gallery.length; i++) {
     const nomElementModal = document.createElement('a');
     nomElementModal.innerText = 'éditer';
     const trashElementModal = document.createElement('div');
-    trashElementModal.id = 'trash';
+    trashElementModal.id = 'img-' + gallery[i].id;
+    trashElementModal.className = 'trash';
     trashElementModal.setAttribute('onclick', 'removeElement(' + gallery[i].id + ')');
     const deleteElementModal = document.createElement('img');
     deleteElementModal.src = './assets/icons/trash.png';

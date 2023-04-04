@@ -46,7 +46,7 @@
                 <h3 id="titlemodal">Galerie photo</h3>
                 <div class="gallery--center">
                     <div class="gallery-modal">
-
+                        <!-- galerie DOM javascript -->
                     </div>
                 </div>
                 <a class="js-modal-2" href="#modal2">Ajouter une photo</a>
@@ -61,24 +61,28 @@
                 <img href="#modal1" class="js-modal2-return" src="./assets/icons/arrow-left-solid.png"></img>
                 <h3 id="titlemodal">Ajout photo</h3>
                 <div class="form--center">
-                    <div class="form-modal">
-                        <form action="#" method="post">
+                    <form id="form" action="#" method="post">
+
+                        <div class="post__background">
+                            <img class="post__logo-image" src="./assets/icons/logo image.png"></img>
                             <label class="post__button">+ Ajouter photo</label>
-                            <input class="post__img" type="file" id="image" name="image" accept="image/png, image/jpeg">
+                            <img class="post__preview" src="#" alt="" id="image">
+                            <input id="file" class="post__img" type="file" onchange="previewPicture(this)" accept=".png, .jpeg">
+                            <span class="post__span">jpg, png : 4mo max</span>
+                        </div>
 
-                            <label for="Titre">Titre</label><br>
-                            <input type="text" name="Titre" id="Titre"><br>
+                        <label for="title">Titre</label><br>
+                        <input class="post__text" type="text" name="title" id="title"><br>
 
-                            <label for="Catégorie">Catégorie</label><br>
-                            <select name="Catégorie" id="Catégorie">
-                                <option value=""></option>
-                                <option value="Objet">Objets</option>
-                                <option value="Appartements">Appartements</option>
-                                <option value="Hotels & restaurants">Hotels & restaurants</option>
-                            </select>
-                    </div>
+                        <label for="categoryId">Catégorie</label><br>
+                        <select class="post__select" name="categoryId" id="categoryId">
+                            <option value=""></option>
+                            <option value="1">Objets</option>
+                            <option value="2">Appartements</option>
+                            <option value="3">Hotels & restaurants</option>
+                        </select>
                 </div>
-                <input class="button" type="submit" value="Valider">
+                <input class="button" type="submit" id="submit" value="Valider"></input>
                 </form>
 
             </div>
