@@ -61,30 +61,31 @@
                 <img href="#modal1" class="js-modal2-return" src="./assets/icons/arrow-left-solid.png"></img>
                 <h3 id="titlemodal">Ajout photo</h3>
                 <div class="form--center">
-                    <form id="form" action="#" method="post">
+                    <form id="form" enctype="multipart/form-data" method="post" name="fileinfo">
 
                         <div class="post__background">
                             <img class="post__logo-image" src="./assets/icons/logo image.png"></img>
                             <label class="post__button">+ Ajouter photo</label>
                             <img class="post__preview" src="#" alt="" id="image">
-                            <input id="file" class="post__img" type="file" onchange="previewPicture(this)" accept=".png, .jpeg">
+                            <input class="post__img" type="file" id="file" onchange="previewPicture(this), isCharSet()"
+                                accept=".png, .jpeg">
                             <span class="post__span">jpg, png : 4mo max</span>
                         </div>
 
                         <label for="title">Titre</label><br>
-                        <input class="post__text" type="text" name="title" id="title"><br>
+                        <input class="post__text" type="text" name="title" id="title" onkeyup="isCharSet()"><br>
 
                         <label for="categoryId">Catégorie</label><br>
-                        <select class="post__select" name="categoryId" id="categoryId">
+                        <select class="post__select" name="category" id="categoryId" onclick="isCharSet()">
                             <option value=""></option>
                             <option value="1">Objets</option>
                             <option value="2">Appartements</option>
                             <option value="3">Hotels & restaurants</option>
                         </select>
-                </div>
-                <input class="button" type="submit" id="submit" value="Valider"></input>
-                </form>
 
+                        <input class="button, button__off" type="submit" id="submit" value="Valider" ></input>
+                    </form>
+                </div>
             </div>
         </aside>
         <section id="introduction">

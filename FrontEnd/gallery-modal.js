@@ -13,7 +13,6 @@ for (let i = 0; i < gallery.length; i++) {
     categoryElementModal.className = 'gallery__item' + ' ' + figureModal.category.id;
     // Création d’une balise dédiée à une figure
     const figureElementModal = document.createElement('figure');
-    figureElementModal.dataset.id = gallery[i].id;
     // Création des balises 
     const imageElementModal = document.createElement('img');
     imageElementModal.src = figureModal.imageUrl;
@@ -22,9 +21,13 @@ for (let i = 0; i < gallery.length; i++) {
     const trashElementModal = document.createElement('div');
     trashElementModal.id = 'img-' + gallery[i].id;
     trashElementModal.className = 'trash';
-    trashElementModal.setAttribute('onclick', 'removeElement(' + gallery[i].id + ')');
+    trashElementModal.setAttribute('onclick', 'removeElement(' + gallery[i].id + ') ');
     const deleteElementModal = document.createElement('img');
     deleteElementModal.src = './assets/icons/trash.png';
+    const moveElementModal = document.createElement('div');
+    moveElementModal.className = 'move';
+    const arrowElementModal = document.createElement('img');
+    arrowElementModal.src = './assets/icons/4-arrows-solid.png';
     
 
     // On rattache la balise article a la div gallery
@@ -33,7 +36,9 @@ for (let i = 0; i < gallery.length; i++) {
     figureElementModal.appendChild(imageElementModal);
     figureElementModal.appendChild(nomElementModal);
     figureElementModal.appendChild(trashElementModal);
+    figureElementModal.appendChild(moveElementModal);
     trashElementModal.appendChild(deleteElementModal);
+    moveElementModal.appendChild(arrowElementModal);
 };
 
     

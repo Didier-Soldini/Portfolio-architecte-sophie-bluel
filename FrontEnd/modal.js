@@ -71,7 +71,9 @@ document.querySelectorAll('.js-modal').forEach(e => {
 //------------------------------DELETE--------------------------------//
 
 
+
 function removeElement(id) {
+
 
 
     const token = localStorage.getItem('token')
@@ -83,33 +85,31 @@ function removeElement(id) {
             'Authorization': `bearer ${token}`
         },
         body: JSON.stringify({
-            
+
         })
     };
 
     fetch(`http://localhost:5678/api/works/${id}`, options)
-        .then(response => response.json());
-    return json;
 
 }
 
 //-------------------------PREVIEW IMAGE-----------------------------------------//
 
 // L'image img#image
-let image = document.getElementById("image");
+let image = document.getElementById('image');
 
 // La fonction previewPicture
 let previewPicture = function (e) {
 
     // e.files contient un objet FileList
     const [picture] = e.files
-   
+
     // "picture" est un objet File
     if (picture) {
         // On change l'URL de l'image
         image.src = URL.createObjectURL(picture)
     }
- console.log(image.src)
+    console.log(image.src)
     // Les types de fichier autorisés
     let types = ["image/jpg", "image/jpeg", "image/png"];
 
@@ -125,33 +125,60 @@ let previewPicture = function (e) {
 
 //------------------------------POST--------------------------------//
 
+let inputFile = document.getElementById('file');
+let inputText = document.getElementById('title');
+let inputCategory = document.getElementById('categoryId');
+let btn = document.getElementById('submit');
+// on commence par desactiver le bouton quand le javascript se charge
+btn.disabled = true;
 
-const form = document.getElementById('form');
+// ajout d'une fonction appelee des qu'une touche est enfoncee
+function isCharSet() {
+    // on verifie si le champ n'est pas vide alors on desactive le bouton sinon on l'active
+    if (inputFile.value != "", inputText.value != "", inputCategory.value != "") {
+        btn.disabled = false;
+        btn.classList.remove("button__off");
+        btn.classList.add("button");
+    } else {
+        btn.disabled = true;
+        btn.classList.remove("button");
+        btn.classList.add("button__off");
+    }
+};
+
+const form = document.forms.namedItem('fileinfo');
 
 form.addEventListener('submit', callbackFunction);
+
 function callbackFunction(event) {
-     event.preventDefault();
-    const myFormData = new FormData(event.target);
+    event.preventDefault();
 
-    const file =document.querySelector('#file');
-    myFormData.append('imageUrl', file.files[0])
+    const formdata = new FormData(form);
 
-    const formDataObj = Object.fromEntries(myFormData.entries());
-    console.log(formDataObj);
+    const file = document.querySelector('#file')
+    formdata.append('image', file.files[0]);
 
-    
+
+    for (item of formdata) {
+        console.log(item[0], item[1]);
+    };
+
     const token = localStorage.getItem('token')
-    
-      const options = {
+
+    const options = {
         method: 'POST',
         headers: {
+            'Content-Type': 'multipart/form-data',
             'Authorization': `bearer ${token}`,
-            'Content-Type': 'application/json',
         },
-          body: myFormData,
+        body: JSON.stringify(formdata),
     };
 
     fetch('http://localhost:5678/api/works', options)
-        .then(response => response.json());
-       
+        .then(response => response.json())
+        .then(response => concole.log(response));
+
 };
+
+
+
