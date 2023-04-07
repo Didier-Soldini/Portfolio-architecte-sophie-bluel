@@ -68,35 +68,13 @@ document.querySelectorAll('.js-modal').forEach(e => {
             'Tab' === e.key && null !== modal && focusInModal(e)
     });
 
-//------------------------------DELETE--------------------------------//
-
-
-
-function removeElement(id) {
-
-
-
-    const token = localStorage.getItem('token')
-
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `bearer ${token}`
-        },
-        body: JSON.stringify({
-
-        })
-    };
-
-    fetch(`http://localhost:5678/api/works/${id}`, options)
-
-}
 
 //-------------------------PREVIEW IMAGE-----------------------------------------//
 
 // L'image img#image
 let image = document.getElementById('image');
+
+let pictures;
 
 // La fonction previewPicture
 let previewPicture = function (e) {
@@ -104,6 +82,7 @@ let previewPicture = function (e) {
     // e.files contient un objet FileList
     const [picture] = e.files
 
+    pictures=e.files
     // "picture" est un objet File
     if (picture) {
         // On change l'URL de l'image
@@ -122,6 +101,8 @@ let previewPicture = function (e) {
         document.querySelector('.post__preview').style.opacity = '100';
     }
 }
+
+
 
 //------------------------------POST--------------------------------//
 
@@ -145,6 +126,8 @@ function isCharSet() {
         btn.classList.add("button__off");
     }
 };
+//---------------------------------------------------------//
+
 
 const form = document.forms.namedItem('fileinfo');
 
@@ -156,27 +139,32 @@ function callbackFunction(event) {
     const formdata = new FormData(form);
 
     const file = document.querySelector('#file')
-    formdata.append('image', file.files[0]);
+    formdata.append('image', pictures[0]);
 
 
     for (item of formdata) {
         console.log(item[0], item[1]);
     };
 
+    const formDataObj = {};
+    formdata.forEach((value, key) => (formDataObj[key] = value));
+    console.log(formDataObj);
+
+
     const token = localStorage.getItem('token')
 
     const options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'multipart/form-data',
+            
             'Authorization': `bearer ${token}`,
         },
-        body: JSON.stringify(formdata),
+        body: formdata,
     };
 
     fetch('http://localhost:5678/api/works', options)
         .then(response => response.json())
-        .then(response => concole.log(response));
+        .then(response => console.log(response));
 
 };
 

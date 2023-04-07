@@ -21,7 +21,6 @@ for (let i = 0; i < gallery.length; i++) {
     const trashElementModal = document.createElement('div');
     trashElementModal.id = 'img-' + gallery[i].id;
     trashElementModal.className = 'trash';
-    trashElementModal.setAttribute('onclick', 'removeElement(' + gallery[i].id + ') ');
     const deleteElementModal = document.createElement('img');
     deleteElementModal.src = './assets/icons/trash.png';
     const moveElementModal = document.createElement('div');
@@ -29,6 +28,11 @@ for (let i = 0; i < gallery.length; i++) {
     const arrowElementModal = document.createElement('img');
     arrowElementModal.src = './assets/icons/4-arrows-solid.png';
     
+    trashElementModal.addEventListener('click', (e)=>{
+        e.preventDefault();
+        console.log(gallery[i].id);
+        removeElement(gallery[i].id);
+    })
 
     // On rattache la balise article a la div gallery
     divGalleryModal.appendChild(categoryElementModal);
@@ -41,4 +45,23 @@ for (let i = 0; i < gallery.length; i++) {
     moveElementModal.appendChild(arrowElementModal);
 };
 
-    
+function removeElement(id) {
+
+
+
+    const token = localStorage.getItem('token')
+
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `bearer ${token}`
+        },
+        body: JSON.stringify({
+
+        })
+    };
+
+    fetch(`http://localhost:5678/api/works/${id}`, options)
+
+}
