@@ -19,16 +19,16 @@ loginPost.addEventListener("submit", async function (event) {
 		body: chargeUtile
 	})
 	const loginState = await reponse.json();
-	console.log(loginState)
+	
 	if (loginState.hasOwnProperty('message')) {
 		document.getElementById('erreur').innerText = 'Erreur dans l’identifiant ou le mot de passe';
 		window.localStorage.removeItem('token');
-		console.log('erreur')
+		
 	}
 		else if (loginState.hasOwnProperty('error')) {
 			document.getElementById('erreur').innerText = 'Erreur dans l’identifiant ou le mot de passe';
 			window.localStorage.removeItem('token');
-			console.log('erreur')
+			
 
 	} else {
 

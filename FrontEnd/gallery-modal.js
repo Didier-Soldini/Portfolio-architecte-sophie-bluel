@@ -1,7 +1,7 @@
 // Récupération de la galerie depuis le fichier JSON
 const reponse = await fetch('http://localhost:5678/api/works');
 const gallery = await reponse.json();
-
+const token = localStorage.getItem('token')
 
 
 for (let i = 0; i < gallery.length; i++) {
@@ -27,13 +27,11 @@ for (let i = 0; i < gallery.length; i++) {
     moveElementModal.className = 'move';
     const arrowElementModal = document.createElement('img');
     arrowElementModal.src = './assets/icons/4-arrows-solid.png';
-    
+    // Sélection de l'id img- + id de la galerie pour le POST DELETE
     trashElementModal.addEventListener('click', (e)=>{
-        e.preventDefault();
-        console.log(gallery[i].id);
+       e.preventDefault();
         removeElement(gallery[i].id);
-    })
-
+    });
     // On rattache la balise article a la div gallery
     divGalleryModal.appendChild(categoryElementModal);
     categoryElementModal.appendChild(figureElementModal);
@@ -45,13 +43,9 @@ for (let i = 0; i < gallery.length; i++) {
     moveElementModal.appendChild(arrowElementModal);
 };
 
-function removeElement(id) {
-
-
-
-    const token = localStorage.getItem('token')
-
-    const options = {
+async function removeElement(id)  {
+    
+    let options = {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -62,6 +56,7 @@ function removeElement(id) {
         })
     };
 
-    fetch(`http://localhost:5678/api/works/${id}`, options)
-
+    await fetch(`http://localhost:5678/api/works/${id}`, options)
+    return false;
+     
 }
