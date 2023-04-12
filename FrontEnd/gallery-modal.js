@@ -1,3 +1,6 @@
+import { genererGallery } from "./gallery.js";
+
+genererGallery()
 // Récupération de la galerie depuis le fichier JSON
 const reponse = await fetch('http://localhost:5678/api/works');
 const gallery = await reponse.json();
@@ -57,6 +60,7 @@ async function removeElement(id)  {
     };
 
     await fetch(`http://localhost:5678/api/works/${id}`, options)
-    return false;
-     
-}
+
+       
+};
+

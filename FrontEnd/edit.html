@@ -14,6 +14,7 @@
     <script type="module" src="script.js"></script>
     <script type="module" src="gallery-modal.js"></script>
     <script type="module" src="modal2.js"></script>
+    
 
 <body>
     <div class="blackbox">
@@ -61,7 +62,7 @@
                 <img href="#modal1" class="js-modal2-return" src="./assets/icons/arrow-left-solid.png"></img>
                 <h3 id="titlemodal">Ajout photo</h3>
                 <div class="form--center">
-                    <form id="form" enctype="multipart/form-data" method="post" name="fileinfo">
+                    <form id="form" action="" method="">
 
                         <div class="post__background">
                             <img class="post__logo-image" src="./assets/icons/logo image.png"></img>
@@ -83,7 +84,7 @@
                             <option value="3">Hotels & restaurants</option>
                         </select>
 
-                        <input class="button, button__off" type="submit" id="submit" value="Valider" ></input>
+                        <input class="button, button__off" type="submit" id="submit" value="Valider" onsubmit="return false" ></input>
                     </form>
                 </div>
             </div>
@@ -142,6 +143,7 @@
         </nav>
     </footer>
     <script src="modal.js"></script>
+    <script src="post.js"></script>
 </body>
 
 </html>
