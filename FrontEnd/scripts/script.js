@@ -1,4 +1,4 @@
-import { genererGallery } from "./gallery.js";
+import { genererGallery } from "./gallery/gallery.js";
 import { genererBouttons } from "./boutons.js";
 import { genererFiltres } from "./filtres.js";
 

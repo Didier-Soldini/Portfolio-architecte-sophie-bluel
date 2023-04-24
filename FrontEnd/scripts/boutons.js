@@ -1,24 +1,26 @@
+const params = {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'}
+};
 
-// Récupération des bouttons depuis le fichier JSON
-const reponse = await fetch('http://localhost:5678/api/categories');
-const BouttonsFiltres = await reponse.json();
+const BouttonsFiltres = await httpGet('http://localhost:5678/api/categories', params)
 
+/**
+ * generation des boutons au dessus de la gallery sur la home page
+ */
 export function genererBouttons() {
     //Boucle pour générer les boutons
     for (let i = 0; i < BouttonsFiltres.length; i++) {
+
         const button = BouttonsFiltres[i];
-        // Récupération de l'élément du DOM qui accueillera les boutons
         const divFiltres = document.querySelector('.filtres');
-        // Création d’une balise dédiée à un bouton
         const buttonElement = document.createElement('span');
+
         buttonElement.dataset.id = BouttonsFiltres[i].id
         buttonElement.className = 'filtres__button';
         buttonElement.innerText = button.name
-        //ajout d'un data filter pour filtrer par id et changer l'état des bouttons
         buttonElement.setAttribute('data-filter', button.id);
 
-
-        // On rattache la balise article a la div filtres
         divFiltres.appendChild(buttonElement);
 
     }
