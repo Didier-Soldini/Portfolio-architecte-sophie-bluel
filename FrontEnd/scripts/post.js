@@ -44,7 +44,7 @@ btn.disabled = true;
 
 function isCharSet() {
   
-    if (inputCategory.value + inputText.value != "") {
+    if (!inputCategory.value, !inputText.value) {
         btn.disabled = false;
         btn.classList.remove("button__off");
         btn.classList.add("button");
@@ -61,34 +61,31 @@ function isCharSet() {
  * @returns {Promise<void>}
  */
 
-const form = document.getElementById('form');
+document.forms['form'].addEventListener('submit',
+    async function newPicture(e) {
+        e.preventDefault();
 
-form.addEventListener('submit', newPicture);
+        const formdata = new FormData(form);
+        const formDataObj = {};
+        document.querySelector('#file')
+        formdata.append('image', pictures[0]);
+        formdata.forEach((value, key) => (formDataObj[key] = value));
 
-async function newPicture(event) {
-    event.preventDefault();
+        const params = {
+            method: 'POST',
+            headers: {
+                'Authorization': `bearer ${token}`,
+            },
+            body: formdata,
+        };
 
-    const formdata = new FormData(form);
-    const formDataObj = {};
-    document.querySelector('#file')
-    formdata.append('image', pictures[0]);
-    formdata.forEach((value, key) => (formDataObj[key] = value));
+        const url = ('http://localhost:5678/api/works')
+        const postResponse = await httpPost(url, params)
+        const objet = await postResponse;
+        const categoryId = objet.categoryId;
+        const id = objet.id;
+        const imageUrl = objet.imageUrl;
+        const title = objet.title;
 
-    const params = {
-        method: 'POST',
-        headers: {
-            'Authorization': `bearer ${token}`,
-        },
-        body: formdata,
-    };
-
-    const url = ('http://localhost:5678/api/works')
-    const postResponse = await httpPost(url, params)
-    const objet = await postResponse;
-    const categoryId = objet.categoryId;
-    const id = objet.id;
-    const imageUrl = objet.imageUrl;
-    const title = objet.title;
-
-    createGalleryItem(objet);
-}
+        createGalleryItem(objet);
+    })
