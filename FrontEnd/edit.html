@@ -71,16 +71,16 @@
                             <img class="post__logo-image" src="./assets/icons/logo image.png"></img>
                             <label class="post__button">+ Ajouter photo</label>
                             <img class="post__preview" src="#" alt="" id="image">
-                            <input class="post__img" type="file" id="file" onchange="previewPicture(this), isCharSet()"
+                            <input class="post__img" type="file" id="file" onchange="previewPicture(this)" 
                                 accept=".png, .jpeg" required>
                             <span class="post__span">jpg, png : 4mo max</span>
                         </div>
 
                         <label for="title">Titre</label><br>
-                        <input class="post__text" type="text" name="title" id="title" onkeyup="isCharSet()" required><br>
+                        <input class="post__text" type="text" name="title" id="title"  oninput="isCharSet()"required><br>
 
                         <label for="categoryId">Catégorie</label><br>
-                        <select class="post__select" name="category" id="categoryId" onselect="isCharSet()" required>
+                        <select class="post__select" name="category" id="categoryId" onclick="isCharSet()" required>
                             <option value=""></option>
                             <option value="1">Objets</option>
                             <option value="2">Appartements</option>

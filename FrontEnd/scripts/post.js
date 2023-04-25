@@ -1,5 +1,6 @@
 const token = localStorage.getItem('token')
 
+
 async function removeElement(id) {
     await removeItemInGallery(id);
 }
@@ -30,19 +31,20 @@ let previewPicture = function (e) {
     }
 };
 
-//-----------------------ACTIVE BOUTON--------------------------------//
+/**
+ * methode qui permet d'activer le boutton pour le post de l'élément à créer dans la gallery
+ * @param  btn à activer
+ */
 
-let inputFile = document.getElementById('file');
 let inputText = document.getElementById('title');
 let inputCategory = document.getElementById('categoryId');
 let btn = document.getElementById('submit');
-// on commence par desactiver le bouton quand le javascript se charge
+
 btn.disabled = true;
 
-// ajout d'une fonction appelee des qu'une touche est enfoncee
 function isCharSet() {
-    // on verifie si le champ n'est pas vide alors on desactive le bouton sinon on l'active
-    if (inputCategory.value != true,inputText.value != true) {
+  
+    if (inputCategory.value + inputText.value != "") {
         btn.disabled = false;
         btn.classList.remove("button__off");
         btn.classList.add("button");
@@ -53,7 +55,11 @@ function isCharSet() {
     }
 }
 
-//-----------------------------POST----------------------------//
+/**
+ * methode qui permet de créer un élément et de générer la gallery
+ * @param formdata création de l'objet à poster
+ * @returns {Promise<void>}
+ */
 
 const form = document.getElementById('form');
 
