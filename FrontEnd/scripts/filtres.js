@@ -8,9 +8,9 @@ export function genererFiltres() {
 
 			const filterValue = event.target.getAttribute('data-filter');
 
+			filterContainer.querySelector('.active').classList.remove('active');
 			event.target.classList.add('active');
 
-			filterContainer.querySelector('.active').classList.remove('active');
 			galleryItems.forEach((item) => {
 				if (item.classList.contains(filterValue) || filterValue === 'all') {
 					item.classList.remove('hide');
