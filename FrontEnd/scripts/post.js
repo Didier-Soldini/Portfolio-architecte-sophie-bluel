@@ -36,24 +36,23 @@ let previewPicture = function (e) {
  * @param  btn à activer
  */
 
+document.forms['form'].addEventListener('input', () => {
+    
 let inputText = document.getElementById('title');
 let inputCategory = document.getElementById('categoryId');
 let btn = document.getElementById('submit');
 
-btn.disabled = true;
-
-function isCharSet() {
-  
-    if (!inputCategory.value, !inputText.value) {
-        btn.disabled = false;
+    if(inputText.value.length > 0 &&
+        inputCategory.value.length > 0){
+            btn.removeAttribute('disabled');
         btn.classList.remove("button__off");
         btn.classList.add("button");
     } else {
-        btn.disabled = true;
+        btn.setAttribute('disabled', 'disabled');
         btn.classList.remove("button");
         btn.classList.add("button__off");
     }
-}
+});
 
 /**
  * methode qui permet de créer un élément et de générer la gallery

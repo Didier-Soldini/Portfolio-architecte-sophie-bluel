@@ -77,17 +77,17 @@
                         </div>
 
                         <label for="title">Titre</label><br>
-                        <input class="post__text" type="text" name="title" id="title"  oninput="isCharSet()"required><br>
+                        <input class="post__text" type="text" name="title" id="title" required><br>
 
                         <label for="categoryId">Catégorie</label><br>
-                        <select class="post__select" name="category" id="categoryId" onselect="isCharSet()" required>
+                        <select class="post__select" name="category" id="categoryId" required>
                             <option value=""></option>
                             <option value="1">Objets</option>
                             <option value="2">Appartements</option>
                             <option value="3">Hotels & restaurants</option>
                         </select>
 
-                        <input class="button, button__off" type="submit" id="submit" value="Valider" onsubmit="return false" ></input>
+                        <input class="button, button__off" type="submit" id="submit" value="Valider" disabled="disabled"></input>
                     </form>
                 </div>
             </div>
