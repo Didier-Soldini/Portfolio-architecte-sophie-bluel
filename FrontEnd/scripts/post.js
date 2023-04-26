@@ -37,12 +37,14 @@ let previewPicture = function (e) {
  */
 
 document.forms['form'].addEventListener('input', () => {
-    
+
+let inputFile = document.getElementById('file');
 let inputText = document.getElementById('title');
 let inputCategory = document.getElementById('categoryId');
 let btn = document.getElementById('submit');
 
-    if(inputText.value.length > 0 &&
+    if(inputFile.value.length > 0 &&
+        inputText.value.length > 0 &&
         inputCategory.value.length > 0){
             btn.removeAttribute('disabled');
         btn.classList.remove("button__off");
