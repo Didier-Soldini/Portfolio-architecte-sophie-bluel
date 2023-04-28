@@ -12,7 +12,6 @@ function generateGalleryItem(item) {
     const nomElement = document.createElement('figcaption');
 
     categoryElement.className = 'gallery__item' + ' ' + figure.category.id;
-
     figureElement.dataset.id = item.id
     imageElement.src = figure.imageUrl;
     nomElement.innerText = figure.title;
