@@ -17,7 +17,7 @@
     <script type="module" src="scripts/script.js"></script>
     <script type="module" src="scripts/gallery/gallery-modal.js"></script>
     <script type="module" src="scripts/modals/modal2.js"></script>
-    
+
 
 <body>
     <div class="blackbox">
@@ -41,8 +41,7 @@
         </div>
     </header>
     <main>
-        <aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
-            style="display:none;">
+        <aside id="modal1" class="modal" aria-hidden="true" aria-labelledby="titlemodal" style="display:none;">
             <div class="modal-wrapper js-modal-stop">
                 <img class="js-modal-close" src="./assets/icons/xmark-solid.png" alt="">
                 <h3 id="titlemodal">Galerie photo</h3>
@@ -56,8 +55,7 @@
 
             </div>
         </aside>
-        <aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="titlemodal"
-            style="display:none;">
+        <aside id="modal2" class="modal" aria-hidden="true" aria-labelledby="titlemodal" style="display:none;">
             <div class="modal-wrapper js-modal2-stop">
                 <img class="js-modal2-close" src="./assets/icons/xmark-solid.png" alt="">
                 <a><img class="js-modal2-return" href="#modal1" src="./assets/icons/arrow-left-solid.png" alt=""></a>
@@ -69,7 +67,7 @@
                             <img class="post__logo-image" src="./assets/icons/logo-image.png" alt="">
                             <label class="post__button">+ Ajouter photo</label>
                             <img class="post__preview" src="#" alt="" id="image">
-                            <input class="post__img" type="file" id="file" onchange="previewPicture(this)" 
+                            <input class="post__img" type="file" id="file" onchange="previewPicture(this)"
                                 accept=".png, .jpeg" required>
                             <span class="post__span">jpg, png : 4mo max</span>
                         </div>
@@ -85,7 +83,7 @@
                             <option value="3">Hotels & restaurants</option>
                         </select>
 
-                        <input class="button, button__off" type="submit" id="submit" value="Valider" disabled="disabled"></input>
+                        <input class="button, button__off" type="submit" id="submit" value="Valider">
                     </form>
                 </div>
             </div>

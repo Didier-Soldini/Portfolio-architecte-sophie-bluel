@@ -46,11 +46,9 @@ let btn = document.getElementById('submit');
     if(inputFile.value.length > 0 &&
         inputText.value.length > 0 &&
         inputCategory.value.length > 0){
-            btn.removeAttribute('disabled');
         btn.classList.remove("button__off");
         btn.classList.add("button");
     } else {
-        btn.setAttribute('disabled', 'disabled');
         btn.classList.remove("button");
         btn.classList.add("button__off");
     }
@@ -82,11 +80,12 @@ document.forms['form'].addEventListener('submit',
 
         const url = ('http://localhost:5678/api/works')
         const postResponse = await httpPost(url, params)
-        const objet = await postResponse;
-        const categoryId = objet.categoryId;
-        const id = objet.id;
-        const imageUrl = objet.imageUrl;
-        const title = objet.title;
+        const item = await postResponse;
+        const categoryId = item.categoryId;
+        const id = item.id;
+        const imageUrl = item.imageUrl;
+        const title = item.title;
 
-        createGalleryItem(objet);
+        generateGalleryItem(item);
+        generateModalGalleryItem(item);
     })

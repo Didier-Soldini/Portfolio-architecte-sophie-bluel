@@ -11,7 +11,7 @@ function generateGalleryItem(item) {
     const imageElement = document.createElement('img');
     const nomElement = document.createElement('figcaption');
 
-    categoryElement.className = 'gallery__item' + ' ' + figure.category.id;
+    categoryElement.className = 'gallery__item' + ' ' + figure.categoryId;
     figureElement.dataset.id = item.id
     imageElement.src = figure.imageUrl;
     nomElement.innerText = figure.title;
@@ -40,7 +40,7 @@ function generateModalGalleryItem(item) {
     const deleteElementModal = document.createElement('img');
     const moveElementModal = document.createElement('div');
 
-    categoryElementModal.className = 'gallery__item' + ' ' + figureModal.category.id;
+    categoryElementModal.className = 'gallery__item' + ' ' + figureModal.categoryId;
     imageElementModal.src = figureModal.imageUrl;
     nomElementModal.innerText = 'éditer';
     trashElementModal.id = 'img-' + item.id;
@@ -114,60 +114,6 @@ async function removeItemInGallery(id) {
     }
 }
 
-/**
- * methode qui permet de créer un élément et de l'afficher dans la gallery
- * @param objet identifiant de l'image à crée
- */
-function createGalleryItem(objet) {
-
-    const divGallery = document.querySelector('.gallery');
-    const categoryElement = document.createElement('div');
-    const figureElement = document.createElement('figure');
-    const imageElement = document.createElement('img');
-    const nomElement = document.createElement('figcaption');
-
-    categoryElement.className = 'gallery__item' + ' ' + objet.categoryId;
-    figureElement.dataset.id = objet.id;
-    imageElement.src = objet.imageUrl;
-    nomElement.innerText = objet.title;
-
-    divGallery.appendChild(categoryElement);
-    categoryElement.appendChild(figureElement);
-    figureElement.appendChild(imageElement);
-    figureElement.appendChild(nomElement);
-
-    const divGalleryModal = document.querySelector('.gallery-modal');
-    const categoryElementModal = document.createElement('div');
-    const figureElementModal = document.createElement('figure');
-    const imageElementModal = document.createElement('img');
-    const nomElementModal = document.createElement('a');
-    const trashElementModal = document.createElement('div');
-    const deleteElementModal = document.createElement('img');
-    const moveElementModal = document.createElement('div');
-    const arrowElementModal = document.createElement('img');
-
-    categoryElementModal.className = 'gallery__item' + ' ' + objet.categoryId;
-    imageElementModal.src = objet.imageUrl;
-    nomElementModal.innerText = 'éditer';
-    trashElementModal.id = 'img-' + objet.id;
-    trashElementModal.className = 'trash';
-    deleteElementModal.src = './assets/icons/trash.png';
-    moveElementModal.className = 'move';
-    arrowElementModal.src = './assets/icons/4-arrows-solid.png';
-    trashElementModal.addEventListener('click', (e) => {
-        e.preventDefault();
-        removeElement(objet.id);
-    });
-
-    divGalleryModal.appendChild(categoryElementModal);
-    categoryElementModal.appendChild(figureElementModal);
-    figureElementModal.appendChild(imageElementModal);
-    figureElementModal.appendChild(nomElementModal);
-    figureElementModal.appendChild(trashElementModal);
-    figureElementModal.appendChild(moveElementModal);
-    trashElementModal.appendChild(deleteElementModal);
-    moveElementModal.appendChild(arrowElementModal);
-}
 
 
 
